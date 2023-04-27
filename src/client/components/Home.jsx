@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "antd";
 // import 'antd/dist/reset.css';
-// import 'antd/dist/antd.css'
 // import About from "./views/About";
 // import Concat from "./views/Concat";
 
