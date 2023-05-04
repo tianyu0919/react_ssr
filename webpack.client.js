@@ -4,7 +4,8 @@ const WebpackBar = require('webpackbar');
 
 module.exports = {
   target: "node",
-  mode: "production",
+  mode: "development",
+  // mode: "production",
   entry: "./src/client/client.js",
   output: {
     filename: "bundle.js",
@@ -31,16 +32,13 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      }
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   plugins: [
     new WebpackBar({
-      name: 'client building...'
-    })
-  ]
+      name: "client building...",
+    }),
+  ],
 };
