@@ -1,5 +1,6 @@
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
+const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
 const WebpackBar = require('webpackbar');
 
 module.exports = {
@@ -40,5 +41,6 @@ module.exports = {
     new WebpackBar({
       name: "client building...",
     }),
+    new VanillaExtractPlugin(),
   ],
 };
