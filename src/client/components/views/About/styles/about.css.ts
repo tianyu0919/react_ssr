@@ -1,5 +1,10 @@
-import { style } from "@vanilla-extract/css";
+import { style, createTheme } from "@vanilla-extract/css";
+
+export const [themeClass, vars] = createTheme({
+  color: "orange"
+});
 
 export const container = style({
-  color: "orange",
+  color: vars.color,
+  background: 'blue'
 });

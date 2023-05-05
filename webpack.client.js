@@ -1,12 +1,12 @@
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
 const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
-const WebpackBar = require('webpackbar');
+const WebpackBar = require("webpackbar");
 
 module.exports = {
   target: "node",
-  mode: "development",
-  // mode: "production",
+  // mode: "development",
+  mode: "production",
   entry: "./src/client/client.js",
   output: {
     filename: "bundle.js",
@@ -34,6 +34,10 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.less$/i,
+        use: ["style-loader", "css-loader", "less-loader"],
       },
     ],
   },
