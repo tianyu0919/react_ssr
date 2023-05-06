@@ -1,7 +1,7 @@
 import { style, createTheme } from "@vanilla-extract/css";
 
 export const [themeClass, vars] = createTheme({
-  color: "orange"
+  color: "#acf4d0",
 });
 
 export const container = style({

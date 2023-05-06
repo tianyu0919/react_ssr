@@ -7,10 +7,12 @@ const app = express();
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
-  const content = renderToString(<Home />);
+  let content = renderToString(<Home />);
+  // content = content.replaceAll("-dev-only-do-not-override", "");
   const html = `
     <html>
       <head></head>
+      <link href="main.css" rel="stylesheet" type="text/css">
       <body>
         <div id="root">${content}</div>
         <script src="bundle.js"></script>

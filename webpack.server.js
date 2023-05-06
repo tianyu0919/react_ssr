@@ -2,13 +2,16 @@ const path = require("path");
 
 const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
 const webpackNodeExternals = require("webpack-node-externals");
-const WebpackBar = require('webpackbar');
+const WebpackBar = require("webpackbar");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const mode = process.env.NODE_ENV;
 
 module.exports = {
   target: "node",
   entry: "./src/index.js",
   // mode: "development",
-  mode: "production",
+  mode,
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "build"),
@@ -20,13 +23,13 @@ module.exports = {
         loader: "babel-loader",
         exclude: /node_modules/,
       },
+      // {
+      //   test: /\.css$/i,
+      //   use: ["style-loader", "css-loader"],
+      // },
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.less$/i,
-        use: ["style-loader", "css-loader", "less-loader"],
+        test: /\.(css|less)$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
       },
     ],
   },
@@ -39,5 +42,6 @@ module.exports = {
       name: "server building...",
     }),
     new VanillaExtractPlugin(),
+    new MiniCssExtractPlugin(),
   ],
 };
