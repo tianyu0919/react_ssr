@@ -8,7 +8,6 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   let content = renderToString(<Home />);
-  // content = content.replaceAll("-dev-only-do-not-override", "");
   const html = `
     <html>
       <head></head>

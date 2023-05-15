@@ -2,7 +2,6 @@ const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
 const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 const WebpackBar = require("webpackbar");
 
 const mode = process.env.NODE_ENV;
@@ -10,7 +9,6 @@ const mode = process.env.NODE_ENV;
 module.exports = {
   target: "node",
   mode,
-  // mode: 'production',
   entry: "./src/client/client.js",
   output: {
     filename: "bundle.js",
@@ -35,10 +33,6 @@ module.exports = {
         loader: "babel-loader",
         exclude: /node_modules/,
       },
-      // {
-      //   test: /\.css$/i,
-      //   use: ["style-loader", "css-loader"],
-      // },
       {
         test: /\.(css|less)$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"],
